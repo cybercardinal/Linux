@@ -1,0 +1,8 @@
+#!/bin/bash
+input="./names.txt"   
+while IFS=, read -r first last;  
+do
+	username="${first:0:1}$last"
+	useradd $username 
+done < "$input"
+tail -8 /etc/password
